@@ -10,11 +10,7 @@ var a = reverse('12345');
 console.log(a);
 
 function reverse(str) {
-    let res = '';
-    for (let c of str) {
-        res = c + res;
-    }
-    return res;
+    return str.split('').reduce((res, c) => c + res, '');
 }
 
 module.exports = reverse;
@@ -30,4 +26,12 @@ module.exports = reverse;
 
 // function reverse(str) {
 //     return str.split('').reverse().join('');
+// }
+
+// function reverse(str) {
+//     let res = '';
+//     for (let c of str) {
+//         res = c + res;
+//     }
+//     return res;
 // }
