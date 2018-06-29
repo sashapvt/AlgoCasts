@@ -10,12 +10,16 @@ var a = reverse('12345');
 console.log(a);
 
 function reverse(str) {
-    var res = '';
-    for (let i = 0; i < str.length; i++) {
-        var element = str[str.length - i - 1];
-        res += element;
-    }
-    return res;
+    return str.split('').reverse().join('');
 }
 
 module.exports = reverse;
+
+// function reverse(str) {
+//     var res = '';
+//     for (let i = 0; i < str.length; i++) {
+//         var element = str[str.length - i - 1];
+//         res += element;
+//     }
+//     return res;
+// }
