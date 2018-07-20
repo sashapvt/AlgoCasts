@@ -11,10 +11,9 @@
 console.log(reverseInt(-15000))
 
 function reverseInt(n) {
-    let pref = Math.sign(n) == -1 ? '-' : '';
-    let res = parseInt(pref + n.toString().split('').reverse().join(''));
+    let res = parseInt(n.toString().split('').reverse().join(''));
 
-    return res;
+    return res * Math.sign(n);
 }
 
 module.exports = reverseInt;
