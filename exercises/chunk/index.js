@@ -12,15 +12,31 @@ console.log(chunk([1, 2, 3, 4, 5], 2));
 
 function chunk(array, size) {
     let res = [];
-    let chunkArr = [];
-    for(let i = 0; i < array.length; i++) {
-        chunkArr.push(array[i]);
-        if ((i + 1) % size === 0 || i + 1 == array.length) {
-            res.push(chunkArr);
-            chunkArr = [];
+
+    for(let element of array) {
+        const last = res[res.length - 1];
+        if (!last || last.length === size) {
+            res.push([element]);
+        }
+        else {
+            last.push(element);
         }
     }
+
     return res;
 }
 
 module.exports = chunk;
+
+// function chunk(array, size) {
+//     let res = [];
+//     let chunkArr = [];
+//     for(let i = 0; i < array.length; i++) {
+//         chunkArr.push(array[i]);
+//         if ((i + 1) % size === 0 || i + 1 == array.length) {
+//             res.push(chunkArr);
+//             chunkArr = [];
+//         }
+//     }
+//     return res;
+// }
