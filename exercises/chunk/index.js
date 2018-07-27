@@ -11,16 +11,12 @@
 console.log(chunk([1, 2, 3, 4, 5], 2));
 
 function chunk(array, size) {
-    let res = [];
+    const res = [];
+    let i = 0;
 
-    for(let element of array) {
-        const last = res[res.length - 1];
-        if (!last || last.length === size) {
-            res.push([element]);
-        }
-        else {
-            last.push(element);
-        }
+    while (i < array.length) {
+        res.push(array.slice(i, i + size));
+        i += size;
     }
 
     return res;
@@ -38,5 +34,21 @@ module.exports = chunk;
 //             chunkArr = [];
 //         }
 //     }
+//     return res;
+// }
+
+// function chunk(array, size) {
+//     let res = [];
+
+//     for(let element of array) {
+//         const last = res[res.length - 1];
+//         if (!last || last.length === size) {
+//             res.push([element]);
+//         }
+//         else {
+//             last.push(element);
+//         }
+//     }
+
 //     return res;
 // }
