@@ -11,17 +11,23 @@
 console.log(fib(1));
 
 function fib(n) {
-    if (n == 0) return 0;
-    if (n == 1) return 1;
-    let prev = 0;
-    let cur = 1;
-    for (let i = 0; i < n - 1; i++) {
-        res = prev + cur;
-        prev = cur;
-        cur = res;
-    }
+    if (n < 2) return n;
 
-    return res;
+    return fib(n-1) + fib(n-2);
 }
+
+// function fib(n) {
+//     if (n == 0) return 0;
+//     if (n == 1) return 1;
+//     let prev = 0;
+//     let cur = 1;
+//     for (let i = 0; i < n - 1; i++) {
+//         res = prev + cur;
+//         prev = cur;
+//         cur = res;
+//     }
+
+//     return res;
+// }
 
 module.exports = fib;
