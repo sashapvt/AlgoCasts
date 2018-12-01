@@ -21,15 +21,24 @@ class Queue {
       }
     
       add(record) {
-
+          while(this.s2.peek()) {
+              this.s1.push(this.s2.pop());
+          }
+          this.s1.push(record);
       }
     
       remove() {
-
+        while(this.s1.peek()) {
+            this.s2.push(this.s1.pop());
+        }
+        return this.s2.pop();
       }
       
       peek() {
-
+        while(this.s1.peek()) {
+            this.s2.push(this.s1.pop());
+        }
+        return this.s2.peek();
       }
 }
 
