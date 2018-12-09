@@ -119,8 +119,34 @@ class LinkedList {
             }
         }
     }
+
+    forEach(f) {
+        let e = this.head;
+        let c = 0;
+        while(e) {
+            f(e, c);
+            e = e.next;
+            c++;
+        }
+    }
+
+    *[Symbol.iterator]() {
+        let e = this.head;
+        while(e) {
+            yield e;
+            e = e.next;
+        }
+    }
 }
 
 const l = new LinkedList();
+l.insertLast(1);
+l.insertLast(2);
+l.insertLast(3);
+l.insertLast(4);
+
+l.forEach(node => {
+  node.data += 10;
+});
 
 module.exports = { Node, LinkedList };
