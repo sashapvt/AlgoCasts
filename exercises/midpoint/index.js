@@ -15,15 +15,26 @@
 const LinkedList = require('./linkedlist');
 
 function midpoint(list) {
-    let slow = list.head;
-    let fast = slow;
-    while(fast && fast.next) {
+    let slow = list.getFirst();
+    let fast = list.getFirst();
+    while(fast.next && fast.next.next) {
+        slow = slow.next;
         fast = fast.next.next;
-        if (fast) slow = slow.next;
     }
 
     return slow;
 }
+
+// function midpoint(list) {
+//     let slow = list.head;
+//     let fast = slow;
+//     while(fast && fast.next) {
+//         fast = fast.next.next;
+//         if (fast) slow = slow.next;
+//     }
+
+//     return slow;
+// }
 
 const l = new LinkedList.LinkedList();
 l.insertLast('a');
