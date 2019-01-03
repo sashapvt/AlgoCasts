@@ -31,6 +31,26 @@ class Tree {
     constructor() {
         this.root = null;
     }
+
+    traverseBF(fn) {
+        let arr = [this.root];
+
+        while (arr.length > 0) {
+            let node = arr.shift();
+            fn(node);
+            if (node.children) Array.prototype.push.apply(arr, node.children);
+        }
+    }
 }
+
+const t = new Tree();
+t.root = new Node('a');
+t.root.add('b');
+t.root.add('c');
+t.root.children[0].add('d');
+
+t.traverseBF(node => {
+  console.log(node.data);
+});
 
 module.exports = { Tree, Node };
