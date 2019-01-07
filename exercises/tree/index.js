@@ -48,7 +48,7 @@ class Tree {
         while (arr.length > 0) {
             let node = arr.shift();
             fn(node);
-            if (node.children) Array.prototype.unshift.apply(arr, node.children);
+            if (node.children) arr.unshift(...node.children);
         }
     }
 }
